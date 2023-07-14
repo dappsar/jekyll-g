@@ -2,19 +2,10 @@
 
   # Gigacounts Guides
 
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
-
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
-  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml)
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)](https://www.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cotes2020/jekyll-theme-chirpy&amp;utm_campaign=Badge_Grade)
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
-
   [**Live Demo →**][demo]
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
-
 </div>
+
 
 ## Features
 
@@ -48,47 +39,117 @@
 ## Documentation
 
 To explore usage, development, and upgrade guide of the project, please refer to
-the [Wiki][wiki].
+the [Wiki][theme info].
 
-## Contributing
 
-Welcome to report bugs, help improve the code or submit new features.
-For more information, please see the ["Contributing Guidelines"][contribute-guide].
+## Requirements
 
-## Credits
+Follow the instructions in the [Jekyll][jekyll-installation] Docs to complete the installation of the basic environment.
 
-This theme is mainly built with [Jekyll][jekyllrb] ecosystem,
-[Bootstrap][bootstrap], [Font Awesome][icons] and some other [wonderful tools][lib].
-The avatar and favicon design come from [Clipart Max][image].
 
-Thanks to all the [contributors][contributors]. Also, folks who submitted issues
-or unmerged PRs should not be forgotten. Because they reported bugs, shared ideas,
-or inspired me to write more readable documentation.
+## Installing Dependencies
 
-Last but not least, thanks to [JetBrains][jetbrains] for providing the
-_Open Source Development_ license.
+Before running local server for the first time, go to the root directory of your site and run:
 
-## Sponsoring
+```shell
+bundle
+```
 
-If you'd like to sponsor this project, the following options are available.
+## Usage
 
-[![Ko-fi](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://ko-fi.com/coteschung)
-[![Wechat Pay](https://img.shields.io/badge/-Tip%20Me%20on%20WeChat-brightgreen?logo=wechat&logoColor=white)][donation]
-[![Alipay](https://img.shields.io/badge/-Tip%20Me%20on%20Alipay-blue?logo=alipay&logoColor=white)][donation]
+### Configuration
 
-## License
+Update the variables of ___config.yml__ as needed. Some of them are typical options:
 
-This work is published under [MIT][mit] License.
+* url
+* avatar
+* timezone
+* lang
 
-[jekyllrb]: https://jekyllrb.com/
-[bootstrap]: https://getbootstrap.com/
-[icons]: https://fontawesome.com/
-[image]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[donation]: https://sponsor.cotes.page/
-[mit]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
+### Customizing Stylesheet
+
+If you need to customize the stylesheet, copy the theme’s __assets/css/style.scss__ to the same path on your Jekyll site, and then add the custom style at the end of it.
+
+Starting with version 4.1.0, if you want to overwrite the SASS variables defined in ___sass/addon/variables.scss__, copy the main sass file ___sass/jekyll-theme-chirpy.scss__ into the _sass directory in your site’s source, then create a new file ___sass/variables-hook.scss__ and assign new value.
+
+### Customing Static Assets
+Static assets configuration was introduced in version 5.1.0. The CDN of the static assets is defined by file ___data/origin/cors.yml__, and you can replace some of them according to the network conditions in the region where your website is published.
+
+Also, if you’d like to self-host the static assets, please refer to the ][chirpy-static-assets][chirpy-static-assets].
+
+### Running Local Server
+You may want to preview the site contents before publishing, so just run it by:
+
+```shell
+$ bundle exec jekyll s
+```
+
+Or run the site on Docker with the following command:
+
+```shell
+$ docker run -it --rm \
+    --volume="$PWD:/srv/jekyll" \
+    -p 4000:4000 jekyll/jekyll \
+    jekyll serve
+```
+
+
+After a few seconds, the local service will be published at http://127.0.0.1:4000.
+
+
+### Deploymnet
+
+Before the deployment begins, check out the file ___config.yml__ and make sure the url is configured correctly. Furthermore, if you prefer the [project site][project-site] and don’t use a custom domain, or you want to visit your website with a base URL on a web server other than **GitHub Pages**, remember to change the _baseurl_ to your project name that starts with a slash, e.g, _/project-name_.
+
+Now you can choose ONE of the following methods to deploy your Jekyll site.
+
+### Deploy by Using GitHub Actions
+
+There are a few things to get ready for.
+
+* If you’re on the GitHub Free plan, keep your site repository public.
+* If you have committed **Gemfile.lock** to the repository, and your local machine is not running Linux, go the the root of your site and update the platform list of the lock-file:
+
+```shell
+$ bundle lock --add-platform x86_64-linux
+```
+
+Next, configure the Pages service.
+
+1. Browse to your repository on GitHub. Select the tab _Settings_, then click _Pages_ in the left navigation bar. Then, in the **Source** section (under _Build and deployment_), select *[GitHub Actions][github-actions]* from the dropdown menu.
+
+2. Push any commits to GitHub to trigger the _Actions_ workflow. In the _Actions_ tab of your repository, you should see the workflow _Build and Deploy_ running. Once the build is complete and successful, the site will be deployed automatically.
+
+At this point, you can go to the URL indicated by GitHub to access your site.
+
+### Manually Build and Deploy
+
+On self-hosted servers, you cannot enjoy the convenience of **GitHub Actions**. Therefore, you should build the site on your local machine and then upload the site files to the server.
+
+Go to the root of the source project, and build your site as follows:
+
+```shell
+$ JEKYLL_ENV=production bundle exec jekyll b
+```
+
+Or build the site on Docker:
+
+```shell
+$ docker run -it --rm \
+    --env JEKYLL_ENV=production \
+    --volume="$PWD:/srv/jekyll" \
+    jekyll/jekyll \
+    jekyll build
+```
+
+Unless you specified the output path, the generated site files will be placed in folder **_site** of the project’s root directory. Now you should upload those files to the target server.
+
+---
+
+
+[jekyll-installation]: https://jekyllrb.com/docs/installation/
+[demo]: https://dappsar.github.io/jekyll-g/
+[theme info]: https://chirpy.cotes.page/posts/getting-started/
+[chirpy-static-assets]: https://github.com/cotes2020/chirpy-static-assets#readme
+[project-site]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites
+[github-actions]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow

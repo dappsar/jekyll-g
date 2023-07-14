@@ -1,11 +1,11 @@
 ---
 title: Getting Started
 author: GIGA
-date: 2019-08-09 20:55:00 +0800
-categories: [Blogging, Tutorial]
+date: 2023-06-09 20:55:00 +0800
+categories: [Guides, Tutorial]
 tags: [getting started]
 pin: true
-img_path: '/posts/20180809'
+img_path: '/posts/20230609'
 ---
 
 ## Prerequisites

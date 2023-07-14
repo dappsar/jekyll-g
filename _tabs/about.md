@@ -4,5 +4,4 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+**Giga** works with a range of initiatives in **UNICEF**, **ITU** and beyond to ensure that students and teachers can access the devices, skills and content they need to make full use of connectivity.

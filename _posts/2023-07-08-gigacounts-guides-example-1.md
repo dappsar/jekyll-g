@@ -1,9 +1,9 @@
 ---
 title: Gigacounts guides example 1
 author: GIGA
-date: 2019-08-08 11:33:00 +0800
-categories: [Blogging, Demo]
-tags: [typography]
+date: 2023-07-08 11:33:00 +0800
+categories: [Guides, Tutorial]
+tags: [Contracts]
 pin: true
 math: true
 mermaid: true

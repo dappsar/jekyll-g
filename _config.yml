@@ -18,7 +18,7 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Gigacounts Guides # the main title
+title: Gigacounts # the main title
 
 tagline: User Guidelines  # it will display as the sub-title
 
@@ -76,7 +76,8 @@ theme_mode: # [light|dark]
 img_cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/commons/avatar.jpg"
+# avatar: "/commons/avatar.jpg"
+avatar: "https://cdn.bio.link/uploads/profile_pictures/2022-06-17/ufpAdZymDWg8pnFuCdKntapMrQFalBXu.png"
 
 # boolean type, the global switch for TOC in posts.
 toc: true

@@ -7,13 +7,13 @@
         {% capture avatar_url %}
             {% if site.avatar contains '://' %}
               {{ site.avatar }}
-            {% elsif site.img_cdn != empty and site.img_cdn %}
-              {{ site.avatar | prepend: site.img_cdn }}
+              {% elsif site.img_cdn != empty and site.img_cdn %}
             {% else %}
               {{ site.avatar | relative_url }}
             {% endif %}
           {% endcapture %}
-        <img src="{{ avatar_url | strip }}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        <!--<img src="{{ avatar_url | strip }}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">-->
+        <img src="https://cdn.bio.link/uploads/profile_pictures/2022-06-17/ufpAdZymDWg8pnFuCdKntapMrQFalBXu.png" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
       {% endif %}
     </a>
 
